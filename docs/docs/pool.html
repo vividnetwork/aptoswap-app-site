@@ -3,7 +3,7 @@
 <html lang="en" >
     <head>
         <meta charset="UTF-8">
-        <title>📖 Introduction · Aptoswap</title>
+        <title>🏊 Pool · Aptoswap</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 4.0.1">
@@ -56,8 +56,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="pool.html" />
+    <link rel="next" href="fee.html" />
     
+    
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -86,7 +88,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -99,7 +101,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="pool.html">
+        <li class="chapter active" data-level="1.2" data-path="pool.html">
             
                 <a href="pool.html">
             
@@ -155,7 +157,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >📖 Introduction</a>
+        <a href="." >🏊 Pool</a>
     </h1>
 </div>
 
@@ -170,32 +172,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="aptoswap">Aptoswap</h1>
-<p>Aptoswap is a unified swap platform powered by <strong>APTOS</strong> blockchain. </p>
-<p>Aptoswap aims to become the fundamental swap infrastructure in <strong>APTOS</strong>. The backend engine of Aptoswap protocol is powered by the smart contracts developed by <em>Vivid Network Team</em> written in move language.</p>
-<p><img src="resources/aptoswap-home-screenshot.png" alt="aptoswap-home-screenshot"></p>
-<h2 id="💡-features">💡 Features</h2>
-<h5 id="1-high-liquidity-provider-fee-rewards">1. High Liquidity Provider Fee Rewards</h5>
-<p>Aptoswap takes a <strong>0.3%</strong> trading fee from users that swap assets on Aptoswap. The LPs (liquidity providers) on Aptoswap will be rewarded by <strong>base liquidity reward fee</strong> and <strong>incentive boost fee</strong>.</p>
-<ul>
-<li><p><strong>Base liquidity reward fee</strong>: Aptoswap platform gives <strong>0.27%</strong> trading fee as based liquidity fee rewards to the LPs. The base liquidity fee will remain unchanged when the pool is created.</p>
-</li>
-<li><p><strong>Incentive boost fee</strong>: For newly created pools, Aptoswap platform gives additional incentive fee that ranges from <strong>0.01%</strong> to <strong>0.03%</strong> as additional fee rewards to the LPs. The incentive reward fee will progressively decrease to zero based on the creation time of the pool. </p>
-</li>
-</ul>
-<p>Thus, the liquidity providers on Aptoswap could get a maximum of <strong>0.3%</strong> with base fee rewards with an additional incentive boost fee. Even when the incentive rewards are drained out, the liquidity providers still could get <strong>0.27%</strong> base fee rewards.</p>
-<p>The higher liquidity fee rewards setting allows Aptoswap to provide a much higher APR compared to other swap platforms. For example, liquidity providers could get <strong>20%</strong> APR boost with incentive fee reward and <strong>8%</strong> APR boost without incentive fee reward compared to a general <strong>0.25%</strong> liquidity fee reward setting.</p>
-<h5 id="2-connect-everywhere-to-boost">2. Connect Everywhere to Boost</h5>
-<p>Aptoswap will try its best to bring more trading opportunity to the pool.</p>
-<p>Our goal is to bring the basic swap infrastructure and make connections to all other aggregators, CLOBs, wallets as well as cross-chain applications.</p>
-<p>We&apos;ve already supported <a href="https://petra.app/" target="_blank">Petra</a>, <a href="https://martianwallet.xyz/" target="_blank">Martian</a>, <a href="https://fewcha.app/" target="_blank">Fewcha</a> wallets, <a href="https://www.celer.network/" target="_blank">Celer Network</a> token bridges and <a href="https://hippo.space/" target="_blank">Hippo</a> aggregator.</p>
-<p>We will continue our integration roadmap to help our liquidity providers for boosting their rewards.</p>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://aptoswap.net" target="_blank"><strong>Aptoswap</strong></a>: The website and app for Aptoswap.</li>
-<li><a href="https://github.com/vividnetwork/aptoswap" target="_blank"><strong>Smart Contract</strong></a>: The smart contract written in MOVE for Aptoswap.</li>
-<li><a href="https://github.com/vividnetwork/swap-sdk" target="_blank"><strong>SDK</strong></a>: The typescript SDK for Aptoswap.</li>
-</ul>
+                                <h1 id="🏊-pools">🏊 Pools</h1>
+<h2 id="🚪-introduction">🚪 Introduction</h2>
+<p>Aptoswap protocol is a combination of <code>Uniswap-V2</code> and <code>Uniswap-V3</code> and <code>Curve</code>. It allows Aptoswap to maximize the possibility to boost general assets as well as pegged assets swapping. In the future, Aptoswap protocol can also allow liquidity providers to boost their profit rewards by centralizing their liquidity to a custom price range.</p>
+<h2 id="💱-pool-type">💱 Pool Type</h2>
+<p>Aptoswap can currently construct 3 types of pools for liquidity providers and swappers:</p>
+<h4 id="1-general-liquidity-pool">1. General liquidity Pool</h4>
+<p>Aptoswap implements the<code>Uniswap-V2</code> constant product algorithm <code>XY=K</code> for creating a pool for general token swapping. Aptoswap users could use those pools for uncorrelated token swapping such <code>APT/USDC</code>, <code>APT/USDT</code>.</p>
+<h5 id="2-stable-swap-pool">2. Stable Swap Pool</h5>
+<p>Aptoswap implements the<code>Curve</code> stable swap algorithm that is used for pegged assets swapping to centralize the liquidity to the pegged price. Users could use those pools for stable coin or pegged assets swapping such as <code>tAPT/APT</code>, <code>USDC/DAI</code>, and <code>USDC/USDT</code>.</p>
+<h4 id="3-whirpool">3. Whirpool</h4>
+<p>Aptoswap implements the <code>Uniswap-V3</code> algorithm that allows liquidity providers to provide liquidity within a user-specified custom price range to centralize their liquidity and boost their rewards. </p>
+<h2 id="💱-connect-pool">💱 Connect Pool</h2>
+<p><a alt="connect-pool"></a></p>
+<p>Some pools could be connected to another platform token pool. </p>
+<p>When a pool is connected, part of the trading fee (called connected fee) is used to automatically buy back platform tokens from its connected platform token pool and rewards to liquidity providers when they withdraw liquidity.</p>
+<p>For example, A <code>BTC/USDT</code> pool could be connected to an <code>APTS/USDT</code>pool with connect fee setup to <strong>0.02%</strong>. When someone trades <code>BTC/USDT</code>, <strong>0.02%</strong> of the income or outcome <code>USDT</code> will be used to buy platform token <code>APTS</code> from <code>APTS/USDT</code>. Those buy-back <code>APTS</code> tokens will be stored and rewarded to the <code>BTC/USDT</code> liquidity providers as additional rewards when they withdraw liquidity.</p>
 
                                 
                                 </section>
@@ -223,8 +215,12 @@
 
             
                 
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 📖 Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="pool.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 🏊 Pool">
+                
+                <a href="fee.html" class="navigation navigation-next " aria-label="Next page: 🪙 Fee">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -235,7 +231,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"📖 Introduction","level":"1.1","depth":1,"next":{"title":"🏊 Pool","level":"1.2","depth":1,"path":"pool.md","ref":"pool.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Vivid Network","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"producer":"Vivid Network","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Aptoswap","language":"en","gitbook":"*","publisher":"Vivid Network","description":"Aptoswap Documentation"},"file":{"path":"README.md","mtime":"2022-10-18T18:00:03.110Z","type":"markdown"},"gitbook":{"version":"4.0.1","time":"2022-10-19T15:41:10.083Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"🏊 Pool","level":"1.2","depth":1,"next":{"title":"🪙 Fee","level":"1.3","depth":1,"path":"fee.md","ref":"fee.md","articles":[]},"previous":{"title":"📖 Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Vivid Network","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"producer":"Vivid Network","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Aptoswap","language":"en","gitbook":"*","publisher":"Vivid Network","description":"Aptoswap Documentation"},"file":{"path":"pool.md","mtime":"2022-10-18T18:00:05.090Z","type":"markdown"},"gitbook":{"version":"4.0.1","time":"2022-10-19T15:41:10.083Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
